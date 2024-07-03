@@ -1,25 +1,25 @@
 # Trabajo Práctico Administración de Bases de Datos
-PROFESOR: Emanuel Alejandro Odstrcil
-Autor: Federico Salvador
+**Profesor:** Emanuel Alejandro Odstrcil
+**Autor:** Federico Salvador
 
 ## Objetivo
 La compañía aseguradora Prima SRL solicita el desarrollo de una base de datos que gestione de manera eficiente la información relacionada con sus seguros de rodados. La base de datos tiene que permitir mantener registro de los detalles de las pólizas de seguro, los clientes, los vehículos, los proveedores y de los siniestros que vayan surgiendo. 
 
-## Creación de la base de datos
-
-``` CREATE DATABASE IF NOT EXISTS `seguros prima` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+### Creación de la base de datos
+```sql
+CREATE DATABASE IF NOT EXISTS `seguros prima` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 USE `Seguros PRIMA`;
-
+```
 
 ## Creación de las Tablas
 
-Restricciones
+<ins>Restricciones</ins>
 - Clientes: Mayor de 18 años y no tener demasiadas infracciones
 - Vehiculos: Menor de 10 años de antiguedad y tener la Verificación Técnica Vehicular vigente
 - Siniestros: Debe tener la licencia de conducir vigente y tener la póliza paga al momento del siniestro
 
-### Tabla Dueños
-````
+#### Tabla Dueños
+````sql
 CREATE TABLE IF NOT EXISTS `duenios` (
   `IDduenio` int(5) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(30) NOT NULL,
@@ -29,8 +29,8 @@ CREATE TABLE IF NOT EXISTS `duenios` (
   PRIMARY KEY (`IDduenio`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 ````
-### Tabla Vehiculos
-````
+#### Tabla Vehiculos
+````sql
 CREATE TABLE IF NOT EXISTS `vehiculos` (
   `IDvehiculo` int(6) NOT NULL AUTO_INCREMENT,
   `marca` varchar(12) NOT NULL,
@@ -43,8 +43,8 @@ CREATE TABLE IF NOT EXISTS `vehiculos` (
 ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 ````
 
-### Tabla Polizas
-````
+#### Tabla Polizas
+````sql
 CREATE TABLE IF NOT EXISTS `polizas` (
   `IDpoliza` int(5) NOT NULL AUTO_INCREMENT,
   `IDvehiculo` int(6) NOT NULL,
@@ -62,8 +62,8 @@ CREATE TABLE IF NOT EXISTS `polizas` (
 ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 ````
 
-### Tabla Siniestros
-````
+#### Tabla Siniestros
+````sql
 CREATE TABLE IF NOT EXISTS `siniestros` (
   `IDsiniestro` int(5) NOT NULL AUTO_INCREMENT,
   `IDpoliza` int(5) NOT NULL,
@@ -77,8 +77,8 @@ CREATE TABLE IF NOT EXISTS `siniestros` (
 ) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 ````
 
-### Tabla Proveedores 
-````
+#### Tabla Proveedores 
+````sql
 CREATE TABLE IF NOT EXISTS `proveedores` (
   `IDproveedor` int(2) NOT NULL AUTO_INCREMENT,
   `tipo` int(1) NOT NULL,
@@ -90,8 +90,8 @@ CREATE TABLE IF NOT EXISTS `proveedores` (
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 ````
 
-### Tablas Normalización
-````
+#### Tablas Normalización
+````sql
 Tabla tipo de Pólizas
 CREATE TABLE IF NOT EXISTS `tipos_polizas` (
   `IDtipoPoliza` int(1) NOT NULL AUTO_INCREMENT,
@@ -100,8 +100,8 @@ CREATE TABLE IF NOT EXISTS `tipos_polizas` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 ````
 
-### Tabla tipo de Siniestros
-````
+#### Tabla tipo de Siniestros
+````sql
 CREATE TABLE IF NOT EXISTS `tipos_siniestros` (
   `IDtipoSiniestro` int(2) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(20) NOT NULL,
@@ -109,8 +109,8 @@ CREATE TABLE IF NOT EXISTS `tipos_siniestros` (
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 ````
 
-### Tabla tipo de Proveedores
-````
+#### Tabla tipo de Proveedores
+````sql
 CREATE TABLE IF NOT EXISTS `tipos_proveedores` (
   `IDtipoProveedor` int(1) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `tipos_proveedores` (
 ````
 
 ## Inserción de datos (los primeros 10 registros)
-````
+````sql
 Tabla de dueños
 INSERT INTO `duenios` (`IDduenio`, `nombre`, `correo`, `telefono`, `DNI`) VALUES
 	(1, 'Juan Perez', 'juan.perez@example.com', 123456789, 12345678),
@@ -134,8 +134,8 @@ INSERT INTO `duenios` (`IDduenio`, `nombre`, `correo`, `telefono`, `DNI`) VALUES
 	(10, 'Elena Ruiz', 'elena.ruiz@example.com', 901234567, 90123456),
 ````
 
-### Tabla Vehículos
-````
+#### Tabla Vehículos
+````sql
 INSERT INTO `vehiculos` (`IDvehiculo`, `marca`, `modelo`, `patente`, `anio`, `IDduenio`) VALUES
 	(1, 'Toyota', 'Corolla', 'AB123CD', 2015, 1),
 	(2, 'Ford', 'Focus', 'BC234DE', 2016, 2),
@@ -150,7 +150,7 @@ INSERT INTO `vehiculos` (`IDvehiculo`, `marca`, `modelo`, `patente`, `anio`, `ID
 ````
 
 ### Tabla Pólizas
-````
+````sql
 INSERT INTO `polizas` (`IDpoliza`, `IDvehiculo`, `fechaEmision`, `fechaVencimiento`, `estadoPago`, `tipo`) VALUES
 	(1, 1, '2022-01-15', '2024-01-15', 2, 1),
 	(2, 2, '2016-03-10', '2025-09-10', 1, 1),
@@ -165,7 +165,7 @@ INSERT INTO `polizas` (`IDpoliza`, `IDvehiculo`, `fechaEmision`, `fechaVencimien
 ````
 
 ### Tabla Proveedores
-````
+````sql
 INSERT INTO `proveedores` (`IDproveedor`, `tipo`, `telefono`, `nombre`) VALUES
 	(1, 3, 1151234567, 'Hermanos Chatarra'),
 	(2, 1, 42345078, 'Gruas El Lejano Oeste'),
@@ -180,7 +180,7 @@ INSERT INTO `proveedores` (`IDproveedor`, `tipo`, `telefono`, `nombre`) VALUES
 ````
 
 ### Tabla Siniestros
-````
+````sql
 INSERT INTO `siniestros` (`IDsiniestro`, `IDpoliza`, `tipo`, `fecha`, `IDproveedor`) VALUES
 	(1, 8, '2', '2022-11-10 01:25:47', NULL),
 	(2, 15, '7', '2021-06-25 02:36:59', 5),
@@ -195,7 +195,7 @@ INSERT INTO `siniestros` (`IDsiniestro`, `IDpoliza`, `tipo`, `fecha`, `IDproveed
 ````
 
 ## Insercion a Tablas de Normalización
-````
+````sql
 Tabla estado de pago
 CREATE TABLE IF NOT EXISTS `estados_pago` (
   `IDtipoPago` int(1) NOT NULL AUTO_INCREMENT,
@@ -205,7 +205,7 @@ CREATE TABLE IF NOT EXISTS `estados_pago` (
 ````
 
 ### Tabla Tipos de Pólizas
-````
+````sql
 INSERT INTO `tipos_polizas` (`IDtipoPoliza`, `nombre`) VALUES
 	(1, 'A'),
 	(2, 'B'),
@@ -214,7 +214,7 @@ INSERT INTO `tipos_polizas` (`IDtipoPoliza`, `nombre`) VALUES
 ````
 
 ### Tabla Tipos de Proveedores
-````
+````sql
 INSERT INTO `tipos_proveedores` (`IDtipoProveedor`, `nombre`) VALUES
 	(1, 'Remolque o Gruas'),
 	(2, 'Primeros auxilios y transporte sanitario'),
@@ -224,14 +224,14 @@ INSERT INTO `tipos_proveedores` (`IDtipoProveedor`, `nombre`) VALUES
 ````
 
 ### Tabla Estados Pago
-````
+````sql
 INSERT INTO `estados_pago` (`IDtipoPago`, `estado`) VALUES
 	(1, 'Pago'),
 	(2, 'Vencido');
 ````
 
 ### Tabla Tipos de Siniestro
-````
+````sql
 INSERT INTO `tipos_siniestros` (`IDtipoSiniestro`, `nombre`) VALUES
 	(1, 'Daños hacia terceros'),
 	(2, 'Daños de cristales'),
@@ -249,24 +249,35 @@ INSERT INTO `tipos_siniestros` (`IDtipoSiniestro`, `nombre`) VALUES
 
 ## Ingreso de consultas
  1. Listar todas las pólizas de seguro vigentes
-    ````
+    
+    ````sql
     SELECT * FROM polizas WHERE fechaVencimiento > CURRENT_TIMESTAMP();
     ````
+    
  1. Calcular el total de reclamaciones por tipo de siniestro
-    ````
+    
+    ````sql
     SELECT COUNT(tipo), nombre FROM siniestros INNER JOIN tipos_siniestros ON tipos_siniestros.IDtipoSiniestro = siniestros.tipo GROUP BY tipo;
     ````
+    
  1. Listar los proveedores de servicios de grúa
-    ````
+    
+    ````sql
     SELECT * FROM proveedores WHERE tipo = 1;
     ````
 
- Diagrama Entidad Relación (DER)
+## Diagrama Entidad Relación (DER)
+![Imagen del Diagrama Entidad Relación de la Aseguradora PRIMA](https://myoctocat.com/assets/images/base-octocat.svg)
 
- Diagrama Tablas
+## Diagrama Tablas
+![Imagen del Diagrama de Tablas de la Aseguradora PRIMA](https://myoctocat.com/assets/images/base-octocat.svg)
 
- DICCIONARIO DE DATOS
+## Diccionario de datos: 
+> [!NOTE]
+> El diccionario se encuentra [aquí](https://pages.github.com/)
 
- Presentación del proyecto
+## Presentación del proyecto
+> [!NOTE]
+> La presentación se puede ver [aquí](https://pages.github.com/)
  
  

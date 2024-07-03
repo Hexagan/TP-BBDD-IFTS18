@@ -1,11 +1,12 @@
-# Trabajo Práctico Administración de Bases de Datos
+# Trabajo Práctico Administración de Bases de Datos IFTS 18
 **Profesor:** Emanuel Alejandro Odstrcil
+<br/>
 **Autor:** Federico Salvador
 
 ## Objetivo
 La compañía aseguradora Prima SRL solicita el desarrollo de una base de datos que gestione de manera eficiente la información relacionada con sus seguros de rodados. La base de datos tiene que permitir mantener registro de los detalles de las pólizas de seguro, los clientes, los vehículos, los proveedores y de los siniestros que vayan surgiendo. 
 
-### Creación de la base de datos
+## Creación de la base de datos
 ```sql
 CREATE DATABASE IF NOT EXISTS `seguros prima` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 USE `Seguros PRIMA`;
@@ -149,7 +150,7 @@ INSERT INTO `vehiculos` (`IDvehiculo`, `marca`, `modelo`, `patente`, `anio`, `ID
 	(10, 'Mazda', 'Mazda3', 'HI890JK', 2022, 8),
 ````
 
-### Tabla Pólizas
+#### Tabla Pólizas
 ````sql
 INSERT INTO `polizas` (`IDpoliza`, `IDvehiculo`, `fechaEmision`, `fechaVencimiento`, `estadoPago`, `tipo`) VALUES
 	(1, 1, '2022-01-15', '2024-01-15', 2, 1),
@@ -164,7 +165,7 @@ INSERT INTO `polizas` (`IDpoliza`, `IDvehiculo`, `fechaEmision`, `fechaVencimien
 	(10, 10, '2019-08-22', '2023-11-22', 1, 2),
 ````
 
-### Tabla Proveedores
+#### Tabla Proveedores
 ````sql
 INSERT INTO `proveedores` (`IDproveedor`, `tipo`, `telefono`, `nombre`) VALUES
 	(1, 3, 1151234567, 'Hermanos Chatarra'),
@@ -179,7 +180,7 @@ INSERT INTO `proveedores` (`IDproveedor`, `tipo`, `telefono`, `nombre`) VALUES
 	(10, 3, 420123456, 'Mecánica Central');
 ````
 
-### Tabla Siniestros
+#### Tabla Siniestros
 ````sql
 INSERT INTO `siniestros` (`IDsiniestro`, `IDpoliza`, `tipo`, `fecha`, `IDproveedor`) VALUES
 	(1, 8, '2', '2022-11-10 01:25:47', NULL),
@@ -194,9 +195,8 @@ INSERT INTO `siniestros` (`IDsiniestro`, `IDpoliza`, `tipo`, `fecha`, `IDproveed
 	(10, 1, '9', '2023-03-10 04:58:33', 1),
 ````
 
-## Insercion a Tablas de Normalización
+## Insercion a Tablas de Normalización (Tipos o categorías del negocio)
 ````sql
-Tabla estado de pago
 CREATE TABLE IF NOT EXISTS `estados_pago` (
   `IDtipoPago` int(1) NOT NULL AUTO_INCREMENT,
   `estado` varchar(7) NOT NULL,
@@ -204,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `estados_pago` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 ````
 
-### Tabla Tipos de Pólizas
+#### Tabla Tipos de Pólizas
 ````sql
 INSERT INTO `tipos_polizas` (`IDtipoPoliza`, `nombre`) VALUES
 	(1, 'A'),
@@ -213,7 +213,7 @@ INSERT INTO `tipos_polizas` (`IDtipoPoliza`, `nombre`) VALUES
 	(4, 'PRIMA');
 ````
 
-### Tabla Tipos de Proveedores
+#### Tabla Tipos de Proveedores
 ````sql
 INSERT INTO `tipos_proveedores` (`IDtipoProveedor`, `nombre`) VALUES
 	(1, 'Remolque o Gruas'),
@@ -223,14 +223,14 @@ INSERT INTO `tipos_proveedores` (`IDtipoProveedor`, `nombre`) VALUES
 	(5, 'Consultoría');
 ````
 
-### Tabla Estados Pago
+#### Tabla Estados Pago
 ````sql
 INSERT INTO `estados_pago` (`IDtipoPago`, `estado`) VALUES
 	(1, 'Pago'),
 	(2, 'Vencido');
 ````
 
-### Tabla Tipos de Siniestro
+#### Tabla Tipos de Siniestro
 ````sql
 INSERT INTO `tipos_siniestros` (`IDtipoSiniestro`, `nombre`) VALUES
 	(1, 'Daños hacia terceros'),

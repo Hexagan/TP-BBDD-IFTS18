@@ -1,4 +1,4 @@
-# Trabajo Práctico Administración de Bases de Datos IFTS 18
+![Diagrama Tablas PRIMA](https://github.com/Hexagan/TP-BBDD-IFTS18/assets/38073413/63d7120d-bc1e-4b79-9b10-6b4ef8897e17)# Trabajo Práctico Administración de Bases de Datos IFTS 18
 **Profesor:** Emanuel Alejandro Odstrcil
 <br/>
 **Autor:** Federico Salvador
@@ -267,17 +267,18 @@ INSERT INTO `tipos_siniestros` (`IDtipoSiniestro`, `nombre`) VALUES
     ````
 
 ## Diagrama Entidad Relación (DER)
-![Imagen del Diagrama Entidad Relación de la Aseguradora PRIMA](https://myoctocat.com/assets/images/base-octocat.svg)
+![Diagrama Modelo Entidad Relación DER PRIMA](https://github.com/Hexagan/TP-BBDD-IFTS18/assets/38073413/19055d53-ab80-429b-b0c3-6bf893c77aa4)
+
 
 ## Diagrama Tablas
-![Imagen del Diagrama de Tablas de la Aseguradora PRIMA](https://myoctocat.com/assets/images/base-octocat.svg)
+![Diagrama Tablas PRIMA](https://github.com/Hexagan/TP-BBDD-IFTS18/assets/38073413/3136c237-a8fc-45bf-8807-9bb3b66da4d0)
 
 ## Diccionario de datos: 
 > [!NOTE]
-> El diccionario se encuentra [aquí](https://pages.github.com/)
+> El diccionario se encuentra [aquí](https://github.com/Hexagan/TP-BBDD-IFTS18/blob/main/dictionary/Diccionario%20de%20Datos.sql)
 
 ## Presentación del proyecto
 > [!NOTE]
-> La presentación se puede ver [aquí](https://pages.github.com/)
+> La presentación se puede descargar [aquí](https://github.com/Hexagan/TP-BBDD-IFTS18/blob/main/ppt/Presentaci%C3%B3n%20PRIMA.pptx)
  
  

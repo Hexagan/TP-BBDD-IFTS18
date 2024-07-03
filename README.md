@@ -1,4 +1,4 @@
-![Diagrama Tablas PRIMA](https://github.com/Hexagan/TP-BBDD-IFTS18/assets/38073413/63d7120d-bc1e-4b79-9b10-6b4ef8897e17)# Trabajo Práctico Administración de Bases de Datos IFTS 18
+# Trabajo Práctico Administración de Bases de Datos IFTS 18
 **Profesor:** Emanuel Alejandro Odstrcil
 <br/>
 **Autor:** Federico Salvador
